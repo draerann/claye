@@ -1,0 +1,4 @@
+git add [filename] --- pour ajouter un nouveau fichier
+git commit -a -m "message" --- pour un nouveau commit de tous les fichiers avec un message
+git push --- pour envoyer les commits sur le serveur github
+git pull --- pour récupérer les commits des autres depuis le serveur
