@@ -9,8 +9,6 @@ def init(n):
     Plateau=[Tour0,Tour1,Tour2]
     return Plateau
 
-print(init(5))
-
 def nombre_disques(plateau,numtour):
     c=len(plateau[numtour])
     return c
@@ -24,23 +22,14 @@ def disque_superieur(plateau,numtour):
     #l=plateau[0]
     #n-l[C]
     #return c
-    
-print(disque_superieur(init(5),0))
-print(disque_superieur(init(5),1))
-print(disque_superieur(init(5),2))
 
 
 def position_disque(plateau, numdisque):
     for l in range (0,2):
         plateau[l]
-        try:
-            position=plateau[l].index(numdisque)
+        if numdisque in plateau[l]:
             return l
-        except ValueError:
-            continue
-n=int(input("nombre de disque: "))
-for i in range (0,n):
-    print (position_disque(init(5),i))
+
 
 def verifier_deplacement(plateau,nt1,nt2):
     #on veut verifier que le dique deplacé soit plus petit que celui sur lequel on veut le placer
