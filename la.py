@@ -1,6 +1,4 @@
-Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 19:29:22) [MSC v.1916 32 bit (Intel)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
->>> def init(n):
+def init(n):
     Tour0=[]
     Tour1=[]
     Tour2=[]
@@ -14,37 +12,45 @@ Type "help", "copyright", "credits" or "license()" for more information.
 print(init(5))
 
 def nombre_disques(plateau,numtour):
-    if numtour==0:
-        c=len(plateau[0])
-    elif numtour==1:
-        c=len(plateau[1])
-    elif numtour==2:
-        c=len(plateau[2])
-    else:
-        c=None
-    
-    if c==0:
-        c=-1
-
+    c=len(plateau[numtour])
     return c
 
 def disque_superieur(plateau,numtour):
-    
-    if numtour==0:
-        c=nombre_disques(plateau,0)
-        l=plateau[0]
-        n=l[c]
-        
-    elif numtour==1:
-        c=nombre_disques(plateau,1)
-        l=plateau[1]
-        n=l[c]
-        
-    elif numtour==2:
-        c=nombre_disques(plateau,2)
-        l=plateau[2]
-        n=l[c]
-        
-    return c
+    c=nombre_disques(plateau,numtour)
+    if c ==0:
+        return-1
+    else:
+        return plateau[numtour][c-1]
+    #l=plateau[0]
+    #n-l[C]
+    #return c
     
 print(disque_superieur(init(5),0))
+print(disque_superieur(init(5),1))
+print(disque_superieur(init(5),2))
+
+
+def position_disque(plateau, numdisque):
+    for l in range (0,2):
+        plateau[l]
+        try:
+            position=plateau[l].index(numdisque)
+            return l
+        except ValueError:
+            continue
+n=int(input("nombre de disque: "))
+for i in range (0,n):
+    print (position_disque(init(5),i))
+
+def verifier_deplacement(plateau,nt1,nt2):
+    #on veut verifier que le dique deplacé soit plus petit que celui sur lequel on veut le placer
+    d1=disque_supérieur(plateau,nt1)
+    d2=disque_supérieur(plateau,nt2)
+    return d1<d2
+
+def verifier_victoire(plateau,n):
+    jotaro=plateau[2]
+    isDecroissant=jotaro==list(reversed(sorted(jotaro)))
+    #sort() met dans l'ordre croissant reverse()les met dans l'ordre décroissant
+    return n==len(jotaro)and isDecroissant
+    
