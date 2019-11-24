@@ -26,13 +26,10 @@ def disque_superieur(plateau,numtour):
 
     
 def position_disque(plateau, numdisque):
-    for l in range (0,2):
-        plateau[l]
-        try:
-            position=plateau[l].index(numdisque)
+    for l in range (0,3):
+        if numdisque in plateau[l]:
             return l
-        except ValueError:
-            continue
+    raise ValueError
 
 
 def verifier_deplacement(plateau,nt1,nt2):
