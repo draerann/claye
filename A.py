@@ -32,7 +32,7 @@ def position_disque(plateau, numdisque):
         try:
             position=plateau[l].index(numdisque)
             return l
-        except ValueError:
+        except ValueError: #pcq il ne trouve pas la valeurs 
             continue   
 
 def verifier_deplacement(plateau,nt1,nt2):
