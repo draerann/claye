@@ -26,11 +26,22 @@ def disque_superieur(plateau,numtour):
 
     
 def position_disque(plateau, numdisque):
+<<<<<<< HEAD:la.py
     for l in range (0,3):
         if numdisque in plateau[l]:
             return l
     raise ValueError
 
+=======
+    for l in range (1,3):
+        print(l)
+        plateau[l]
+        try:
+            position=plateau[l].index(numdisque)
+            return l
+        except ValueError:
+            continue   
+>>>>>>> a95bf98ed6f15146857b6468c6e1388fe1b02a9b:A.py
 
 def verifier_deplacement(plateau,nt1,nt2):
     #on veut verifier que le dique deplacé soit plus petit que celui sur lequel on veut le placer
