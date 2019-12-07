@@ -26,14 +26,10 @@ def disque_superieur(plateau,numtour):
 
     
 def position_disque(plateau, numdisque):
-    for l in range (1,3):
-        print(l)
-        plateau[l]
-        try:
-            position=plateau[l].index(numdisque)
+    for l in range (0,3):
+        if numdisque in plateau[l]:
             return l
-        except ValueError: #pcq il ne trouve pas la valeurs 
-            continue   
+    raise ValueError
 
 def verifier_deplacement(plateau,nt1,nt2):
     #on veut verifier que le dique deplacé soit plus petit que celui sur lequel on veut le placer
