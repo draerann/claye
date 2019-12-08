@@ -23,12 +23,16 @@ def lire_coords(plateau):
 
 def jouer_un_coup(plateau,n):
     (ntourd,ntoura) = lire_coords(plateau)
-    ndd=disque_superieur(plateau,ntourd)
-    efface_disque(ndd,plateau,n)
-    plateau[ntourd].remove(ndd)
-    plateau[ntoura].append(ndd)
-    dessine_disque(ndd,plateau,n)
-    
+    if not(verifier_deplacement(plateau,ntourd,ntoura)):
+        print("Invalide")
+        (ntourd,ntoura) = lire_coords(plateau)
+    r=plateau[ntourd][0]
+    efface_disque(r,plateau,n)
+    plateau[ntoura].insert(0,r)
+    plateau[ntourd].pop(0)
+    dessine_disque(r,plateau,n)
+
+
 def boucle_jeu(plateau,n):
     p=0
     nmax=50
