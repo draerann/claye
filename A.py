@@ -42,9 +42,7 @@ def verifier_deplacement(plateau,nt1,nt2):
     return d1<d2
 
 
-def verifier_victoire(plateau,n):
-    jotaro=plateau[2]
-    isDecroissant=jotaro==list(reversed(sorted(jotaro)))
+def verifier_victoire(plateau,n):    
+    isDecroissant=plateau[2]==list(sorted(plateau[2]))
     #sort() met dans l'ordre croissant reverse()les met dans l'ordre décroissant
-    return n==len(jotaro)and isDecroissant
-
+    return n==len(plateau[2]) and isDecroissant
