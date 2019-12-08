@@ -16,7 +16,7 @@ def nombre_disques(plateau,numtour):
 def disque_superieur(plateau,numtour):
     c=nombre_disques(plateau,numtour)
     if c ==0:
-        return-1
+        return -1
     else:
         return plateau[numtour][c-1]
     #l=plateau[0]

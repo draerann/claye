@@ -24,11 +24,10 @@ def lire_coords(plateau):
 def jouer_un_coup(plateau,n):
     (ntourd,ntoura) = lire_coords(plateau)
     ndd=disque_superieur(plateau,ntourd)
-    plateau[ntourd].remove(ndd)
-    nda=disque_superieur (plateau,ntoura)
-    plateau[ntoura].append(nda)
     efface_disque(ndd,plateau,n)
-    dessine_disque(nda,plateau,n)
+    plateau[ntourd].remove(ndd)
+    plateau[ntoura].append(ndd)
+    dessine_disque(ndd,plateau,n)
     
 def boucle_jeu(plateau,n):
     p=0

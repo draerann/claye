@@ -6,6 +6,7 @@ speed(9)
 
 def dessine_plateau(n):
     #On place le curseur et fixe les valeurs utiles
+    seth(0)
     up()
     goto(-600,0)
     down()
@@ -33,6 +34,7 @@ def dessine_plateau(n):
 
 def dessine_disque(nd,plateau,n):
     #On fixe les valeurs qui nous servirons à placer le disque
+    seth(0)
     color("black")
     t=position_disque(plateau,nd)
     if t==0:
@@ -122,3 +124,4 @@ def efface_tout(plateau,n):
             forward(20*n+80)
             left(90)
     end_fill()
+
