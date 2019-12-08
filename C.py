@@ -7,7 +7,7 @@ def lire_coords(plateau):
         if ntourd>2 or ntourd<0:
             t=False
             print("valeur interdite")
-        ntoura=int(input("numéro de la tour de d'arrivée")) 
+        ntoura=int(input("numéro de la tour de d'arrivée ")) 
         if ntoura>2 or ntoura<0:
             t=False
             print("valeur interdite")
@@ -17,30 +17,19 @@ def lire_coords(plateau):
                     t=True
                     break 
         
-    t=False 
-    while (t==False):
-        ntoura=int(input("numéro de la tour de d'arrivée ")) 
-        if ntoura>2 or ntoura<0:
-            t=False
-            print("valeur interdite")
-        elif (verifier_deplacement(plateau,ntourd,ntoura)):
-            t=True
-            break
-
     l1=(ntourd,ntoura)
     return l1
 
 
 def jouer_un_coup(plateau,n):
     (ntourd,ntoura) = lire_coords(plateau)
-    nd=disque_superieur(plateau,ntourd)
-    efface_disque(nd,plateau,n)
-    plateau[ntourd].remove(nd)
-    nd=disque_superieur (plateau,ntoura)
-    dessine_disque(nd,plateau,n)
-    plateau[ntourd].remove(nd)
-    plateau[ntoura].append(nd)
-
+    ndd=disque_superieur(plateau,ntourd)
+    plateau[ntourd].remove(ndd)
+    nda=disque_superieur (plateau,ntoura)
+    plateau[ntoura].append(nda)
+    efface_disque(ndd,plateau,n)
+    dessine_disque(nda,plateau,n)
+    
 def boucle_jeu(plateau,n):
     p=0
     nmax=50
