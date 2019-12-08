@@ -1,9 +1,8 @@
-
 from turtle import *
 from A import *
 
 setup(1500,600)
-speed(0)
+speed(9)
 
 def dessine_plateau(n):
     #On place le curseur et fixe les valeurs utiles
@@ -14,7 +13,7 @@ def dessine_plateau(n):
     #On trace le plateau
     for i in range(0,4,1):
         if i%2==0:
-            forward(3*n2+4*20)            
+            forward(3*n2+4*20)          
         else:
             forward(20)            
         left(90)
@@ -37,13 +36,13 @@ def dessine_disque(nd,plateau,n):
     color("black")
     t=position_disque(plateau,nd)
     if t==0:
-        r=Tour0.index(nd)    
+        r=len(plateau[0])-plateau[0].index(nd)
     elif t==1:
-        r=Tour1.index(nd)
+        r=len(plateau[1])-plateau[1].index(nd)
     elif t==2:
-        r=Tour2.index(nd)
-    #On se place en bas à gauche du disque    
-    goto((t+1)*20+(((n-1)*30+40)/2)*(t*2+1)-600-((nd-1)*30+40)/2,r*20+20)
+        r=len(plateau[2])-plateau[2].index(nd)    
+    #On se place en bas à gauche du disque     
+    goto((t+1)*20+(((n-1)*30+40)/2)*(t*2+1)-600-((nd-1)*30+40)/2,r*20)
     down()
     #On trace le disque
     for i in range(0,4,1):
@@ -72,13 +71,13 @@ def efface_disque(nd,plateau,n):
     seth(0)
     t=position_disque(plateau,nd)
     if t==0:
-        r=Tour0.index(nd)    
+        r=len(plateau[0])-plateau[0].index(nd)
     elif t==1:
-        r=Tour1.index(nd)
+        r=len(plateau[1])-plateau[1].index(nd)
     elif t==2:
-        r=Tour2.index(nd)    
+        r=len(plateau[2])-plateau[2].index(nd)
     #On efface les trois segements superieur du disque (le dernier étant confondu avec le disque inférieur)
-    goto((t+1)*20+(((n-1)*30+40)/2)*(t*2+1)-600-((nd-1)*30+40)/2,r*20+21)
+    goto((t+1)*20+(((n-1)*30+40)/2)*(t*2+1)-600-((nd-1)*30+40)/2,r*20+1)
     left(90)
     pencolor("white")
     down()
@@ -89,13 +88,13 @@ def efface_disque(nd,plateau,n):
     forward(20)
     up()
     #Puis on retrace les deux segements de la tour
-    goto((t+1)*20+(((n-1)*30+40)/2)*(t*2+1)-600-((nd-1)*30+40)/2+((nd-1)*30+40)/2-3,r*20+21)
+    goto((t+1)*20+(((n-1)*30+40)/2)*(t*2+1)-600-((nd-1)*30+40)/2+((nd-1)*30+40)/2-3,r*20+1)
     right(180)
     color("black")
     down()
     forward(20)
     up()
-    goto((t+1)*20+(((n-1)*30+40)/2)*(t*2+1)-600-((nd-1)*30+40)/2+((nd-1)*30+40)/2+3,r*20+21)
+    goto((t+1)*20+(((n-1)*30+40)/2)*(t*2+1)-600-((nd-1)*30+40)/2+((nd-1)*30+40)/2+3,r*20+1)
     down()
     forward(20)
     up()

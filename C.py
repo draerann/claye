@@ -1,5 +1,5 @@
-from B.py import *
-
+from B import *
+from A import *
 def lire_coords(plateau):
     t=False
     while (t==False):
@@ -28,29 +28,29 @@ def lire_coords(plateau):
             break
 
     l1=(ntourd,ntoura)
-return l1
+    return l1
 
 
 def jouer_un_coup(plateau,n):
     (ntourd,ntoura) = lire_coords(plateau)
-    nd=disque_supérieur (plateau,ntourd)
+    nd=disque_superieur(plateau,ntourd)
     efface_disque(nd,plateau,n)
     plateau[ntourd].remove(nd)
-    nd=disque_supérieur (plateau,ntoura)
+    nd=disque_superieur (plateau,ntoura)
     dessine_disque(nd,plateau,n)
-    plateau[ntourd].remove(ndisque)
+    plateau[ntourd].remove(nd)
     plateau[ntoura].append(nd)
 
 def boucle_jeu(plateau,n):
     p=0
     nmax=50
-    while (! verifier_victoire(plateau,n)):
+    while (not verifier_victoire(plateau,n)):
         jouer_un_coup(plateau,n)
         if p>nmax:
             print("perdu trop de coups")
         jouer_un_coup(plateau,n)
         p+=1
     
-return p
+    return p
 
     
