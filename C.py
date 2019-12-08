@@ -13,17 +13,17 @@ def lire_coords(plateau):
             print("valeur interdite")
         else:
             for i in range (0,3):
-                if (verifier_deplacement(plateau,ntourd,i):
+                if (verifier_deplacement(plateau,ntourd,i)):
                     t=True
                     break 
         
     t=False 
-     while (t==False):
+    while (t==False):
         ntoura=int(input("numéro de la tour de d'arrivée ")) 
         if ntoura>2 or ntoura<0:
             t=False
             print("valeur interdite")
-        elif (verifier_deplacement(plateau,ntourd,ntoura):
+        elif (verifier_deplacement(plateau,ntourd,ntoura)):
             t=True
             break
 
@@ -44,7 +44,7 @@ def jouer_un_coup(plateau,n):
 def boucle_jeu(plateau,n):
     p=0
     nmax=50
-    while !(verifier-victoire(plateau,n)):
+    while (! verifier_victoire(plateau,n)):
         jouer_un_coup(plateau,n)
         if p>nmax:
             print("perdu trop de coups")
